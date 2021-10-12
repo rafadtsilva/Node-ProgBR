@@ -20,4 +20,8 @@ router.post("/new", express.json(), (req, res) => {
 
 })
 
+router.delete("/del", express.json(), (req, res) => {
+  
+})
+
 module.exports = router;

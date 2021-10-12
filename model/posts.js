@@ -17,7 +17,11 @@ module.exports = { //tudo aqui dentro é um objeto
   },
 
   deletePost(id) {
-    
+    this.posts.forEach((post, i) => {
+      if(id == post.id) {
+        this.posts[i] = ""
+      }
+    })
   }
 
 }

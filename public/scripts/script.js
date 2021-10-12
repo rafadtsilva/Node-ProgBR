@@ -53,7 +53,11 @@ function newPost() {
 
   })
 
+}
 
+function deletePost () {
+
+  
 
 }
 
