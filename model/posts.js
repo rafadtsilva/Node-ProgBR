@@ -14,6 +14,10 @@ module.exports = { //tudo aqui dentro é um objeto
 
   newPost(title, description) {
     this.posts.push({ id: generateID(), title, description });
+  },
+
+  deletePost(id) {
+    
   }
 
 }
