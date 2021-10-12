@@ -22,6 +22,12 @@ router.post("/new", express.json(), (req, res) => {
 
 router.delete("/del", express.json(), (req, res) => {
   
+  let id = req.body.id;
+
+  posts.deletePost(id);
+
+  res.send("Post deletado");
+
 })
 
 module.exports = router;
