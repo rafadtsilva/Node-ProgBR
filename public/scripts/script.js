@@ -1,8 +1,10 @@
 // const { options } = require("../../routes/api");
 
+// const { options } = require("../../routes/api");
 document.addEventListener('DOMContentLoaded', () => {
   updatePosts();
 })
+
 
 function updatePosts() {
 
@@ -16,17 +18,24 @@ function updatePosts() {
       let postElement = `
         <div id="${post.id}" class="card mt-4">
           <div class="card-header">
-            <h5 class="card-title">${post.title}</h5>
+            <h5 class="card-title d-inline">${post.title}</h5>
+            <span id="${post.id}"class="delete float-end">X</span>
           </div>
         <div class="card-body">
           <div class="card-text">${post.description}</div>
-      </div>
-    </div>`;
-    postElements += postElement;
+        </div>
+      </div>`;
+      postElements += postElement;
     })
 
-    document.getElementById("posts").innerHTML = postElements;
+    let postsTag = document.getElementById("posts");
+    postsTag.innerHTML = postElements;
 
+    let teste = document.querySelectorAll(".delete")
+    teste.forEach(test => {
+      test.addEventListener('click', deletePost)
+      console.log(test.id) 
+    })
   })
 
 }
@@ -55,9 +64,23 @@ function newPost() {
 
 }
 
-function deletePost () {
+function deletePost (event) {
 
-  
+  // let ids = document.getElementById("posts");
+  let id = event.target.id;
+  console.log("del ", id)
+
+  let del = { id };
+
+  const options = {
+    method: "DELETE",
+    headers: new Headers({'content-type': 'application/json'}),
+    body: JSON.stringify(del)
+  }
+  fetch("http://localhost:3000/api/del", options).then(res => {
+    console.log(res);
+    updatePosts();
+  })
 
 }
 
