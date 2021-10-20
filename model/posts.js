@@ -18,10 +18,8 @@ module.exports = { //tudo aqui dentro é um objeto
 
   deletePost(id) {
     this.posts.forEach((post, i) => {
-      console.log("posts.jd id: ",id)
       if(id === post.id) {
         this.posts.splice(i,1);
-        console.log("posts.jd post.id: ",post.id)
       }
     })
   },

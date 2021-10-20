@@ -34,7 +34,6 @@ function updatePosts() {
     let teste = document.querySelectorAll(".delete")
     teste.forEach(test => {
       test.addEventListener('click', deletePost)
-      console.log(test.id) 
     })
   })
 
@@ -53,7 +52,7 @@ function newPost() {
     body: JSON.stringify(post)
   }
 
-  fetch("http://localhost:3000/api/new", options).then(res => {
+  fetch("http://192.168.0.109:3000/api/new", options).then(res => {
     console.log(res);
     updatePosts();
 
@@ -68,7 +67,6 @@ function deletePost (event) {
 
   // let ids = document.getElementById("posts");
   let id = event.target.id;
-  console.log("del ", id)
 
   let del = { id };
 
@@ -77,8 +75,7 @@ function deletePost (event) {
     headers: new Headers({'content-type': 'application/json'}),
     body: JSON.stringify(del)
   }
-  fetch("http://localhost:3000/api/del", options).then(res => {
-    console.log(res);
+  fetch("http://192.168.0.109:3000/api/del", options).then(res => {
     updatePosts();
   })
 
