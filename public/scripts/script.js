@@ -28,8 +28,10 @@ function updatePosts() {
       postElements += postElement;
     })
 
-    let postsTag = document.getElementById("posts");
-    postsTag.innerHTML = postElements;
+    // let postsTag = document.getElementById("myPosts");
+    // postsTag.innerHTML = postElements;
+
+    myPosts.innerHTML = postElements;
 
     let teste = document.querySelectorAll(".delete")
     teste.forEach(test => {
