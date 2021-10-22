@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function updatePosts() {
 
-  fetch("http://200.229.211.50:3000/api/all").then(res => {
+  fetch("http://200.229.211.50:10219/api/all").then(res => {
     return res.json()
   }).then(json => {
 
