@@ -11,10 +11,6 @@ app.use("/", express.static(path.join(__dirname, "public")));
 
 const portaHeroku = process.env.PORT
 
-app.get("/", (req, res) => {
-  res.render('port', {portaHeroku})
-})
-
 app.listen(portaHeroku || 3000, () => {
   console.log("Server running on port: ", portaHeroku)
 })
