@@ -8,15 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function updatePosts() {
 
-  const options = { 
-    method: "GET", 
-    headers: new Headers({
-      'content-type': 'application/json', 
-      'Host': 'https://aprendendonode.herokuapp.com/'
-    }),
-  }
-
-  fetch("https://aprendendonode.herokuapp.com/api/all", options).then(res => {
+  fetch("https://aprendendonode.herokuapp.com/api/all").then(res => {
     return res.json()
   }).then(json => {
 
