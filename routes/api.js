@@ -4,7 +4,7 @@ const posts = require('../model/posts')
 const cors = require('cors')
 
 const options = {
-  origin: "http://localhost:3000"
+  origin: "https://aprendendonode.herokuapp.com/"
 }
 
 router.use(cors(options))
