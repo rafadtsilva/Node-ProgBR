@@ -8,7 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function updatePosts() {
 
-  fetch("http://200.229.211.50:10219/api/all").then(res => {
+  const options = { 
+    method: "GET", 
+    headers: new Headers({
+      'content-type': 'application/json', 
+      'Host': 'https://aprendendonode.herokuapp.com/'
+    }),
+  }
+
+  fetch("https://aprendendonode.herokuapp.com/api/all", options).then(res => {
     return res.json()
   }).then(json => {
 
@@ -50,11 +58,14 @@ function newPost() {
 
   const options = { 
     method: "POST", 
-    headers: new Headers({'content-type': 'application/json' }),
+    headers: new Headers({
+      'content-type': 'application/json', 
+      'Host': 'https://aprendendonode.herokuapp.com/'
+    }),
     body: JSON.stringify(post)
-  }
+  }     
 
-  fetch("http://192.168.0.109:3000/api/new", options).then(res => {
+  fetch("https://aprendendonode.herokuapp.com/api/new", options).then(res => {
     console.log(res);
     updatePosts();
 
