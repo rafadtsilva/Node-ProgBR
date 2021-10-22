@@ -8,8 +8,8 @@ const apiRoute = require('./routes/api')
 app.use("/api", apiRoute);
 app.use("/", express.static(path.join(__dirname, "public")));
 
+const portaHeroku = process.env.PORT
 
-
-app.listen(process.env.PORT || 3000, () => {
-  console.log("Server running on port: ", porta)
+app.listen(portaHeroku || 3000, () => {
+  console.log("Server running on port: ", portaHeroku)
 })
