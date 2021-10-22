@@ -59,9 +59,7 @@ function newPost() {
   const options = { 
     method: "POST", 
     headers: new Headers({
-      'content-type': 'application/json', 
-      'Host': 'https://aprendendonode.herokuapp.com/'
-    }),
+      'content-type': 'application/json'}),
     body: JSON.stringify(post)
   }     
 
@@ -85,10 +83,13 @@ function deletePost (event) {
 
   const options = {
     method: "DELETE",
-    headers: new Headers({'content-type': 'application/json'}),
+    headers: new Headers({
+      'content-type': 'application/json', 
+      'Host': 'https://aprendendonode.herokuapp.com/'
+    }),
     body: JSON.stringify(del)
   }
-  fetch("http://192.168.0.109:3000/api/del", options).then(res => {
+  fetch("https://aprendendonode.herokuapp.com/api/del", options).then(res => {
     updatePosts();
   })
 
